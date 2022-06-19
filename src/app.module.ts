@@ -8,6 +8,13 @@ import { PostModule } from './post/post.module';
 import { PostEntity } from './post/entities/post.entity';
 import { CommentModule } from './comment/comment.module';
 import { CommentEntity } from './comment/entities/comment.entity';
+import { AuthModule } from './auth/auth.module';
+import { SegmentationModule } from './segmentation/segmentation.module';
+import { SegmentationEntity } from './segmentation/entities/segmentation.entity';
+import { ConclusionModule } from './conclusion/conclusion.module';
+import { ConclusionEntity } from './conclusion/entities/conclusion.entity';
+import { NotesModule } from './notes/notes.module';
+import { NotesEntity } from './notes/entities/note.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -17,9 +24,9 @@ import { CommentEntity } from './comment/entities/comment.entity';
     username: 'postgres',
     password: 'qwerty123',
     database: 'medical-db',
-    entities: [UserEntity,PostEntity,CommentEntity],
+    entities: [UserEntity,PostEntity,CommentEntity,SegmentationEntity, ConclusionEntity, NotesEntity],
     synchronize: true,
-  }),UserModule, PostModule, CommentModule],
+  }),UserModule, PostModule, CommentModule, AuthModule, SegmentationModule, ConclusionModule, NotesModule],
   controllers: [AppController],
   providers: [AppService],
 })
