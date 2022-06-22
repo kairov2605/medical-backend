@@ -19,7 +19,7 @@ import { NotesEntity } from './notes/entities/note.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'postgres',
-    host: process.env.DB_URI,
+    host: 'database-2.c4sfegiqr6wm.us-east-1.rds.amazonaws.com',
     port: 5432,
     username: 'postgres',
     password: process.env.DB_PASSWORD,
