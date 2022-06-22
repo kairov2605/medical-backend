@@ -19,15 +19,15 @@ import { NotesEntity } from './notes/entities/note.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'database-1.c4sfegiqr6wm.us-east-1.rds.amazonaws.com',
+    host: process.env.DB_URI,
     port: 5432,
     username: 'postgres',
-    password: 'Islyambek2000',
-    database: 'database-1',
-    entities: [UserEntity,PostEntity,CommentEntity,SegmentationEntity, ConclusionEntity, NotesEntity],
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    entities: [UserEntity, PostEntity, CommentEntity, SegmentationEntity, ConclusionEntity, NotesEntity],
     synchronize: true,
-  }),UserModule, PostModule, CommentModule, AuthModule, SegmentationModule, ConclusionModule, NotesModule],
+  }), UserModule, PostModule, CommentModule, AuthModule, SegmentationModule, ConclusionModule, NotesModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
